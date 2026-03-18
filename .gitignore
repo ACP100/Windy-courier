@@ -10,6 +10,12 @@ env/
 .idea/
 .vscode/
 runs/
+INTERVIEW.txt
+barefoot_coach_model.zip
+assets/logs/*.csv
+assets_smoke/
+assets_smoke2/
+assets_smoke_firefly/
 assets/videos/*.mp4
 assets/gifs/*.gif
 assets/plots/*.png

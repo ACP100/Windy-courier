@@ -109,6 +109,25 @@ class WindyCourierEnv(gym.Env[np.ndarray, int]):
         self.total_score = 0.0
 
     def _sample_start(self) -> np.ndarray:
+        min_x, max_x = 1.25, self.width - 1.25
+        min_y, max_y = 1.25, self.height - 1.25
+        min_distance = 1.6
+
+        for _ in range(64):
+            candidate = np.array(
+                [
+                    float(self.np_random.uniform(min_x, max_x)),
+                    float(self.np_random.uniform(min_y, max_y)),
+                ],
+                dtype=np.float32,
+            )
+            if (
+                np.linalg.norm(candidate - self.package_spawn) >= min_distance
+                and np.linalg.norm(candidate - self.goal_spawn) >= min_distance
+                and np.linalg.norm(candidate - self.obstacle_base) >= min_distance
+            ):
+                return candidate
+
         return np.array([1.5, 1.5], dtype=np.float32)
 
     def _get_wind_vector(self, point: np.ndarray) -> np.ndarray:

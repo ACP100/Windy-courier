@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import tempfile
+import time
 from pathlib import Path
 
 import gradio as gr
@@ -18,7 +19,8 @@ def run_demo(seed: int) -> tuple[str, str]:
     model = PPO.load(MODEL_PATH)
     tmp_dir = Path(tempfile.mkdtemp())
     video_path = tmp_dir / 'windy_courier_demo.mp4'
-    result = record_episode_video(model, video_path, seed=seed, deterministic=True)
+    episode_seed = int(seed + (time.time_ns() % 1_000_000))
+    result = record_episode_video(model, video_path, seed=episode_seed, deterministic=True)
     stats = (
         f'Success: {result.success}\n'
         f'Reward: {result.reward:.2f}\n'
