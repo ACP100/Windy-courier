@@ -1,0 +1,6 @@
+{
+  "episodes": 1,
+  "mean_reward": -16.254517130851745,
+  "success_rate": 0.0,
+  "metrics_csv": "assets_smoke2\\final_model\\evaluation_metrics.csv"
+}

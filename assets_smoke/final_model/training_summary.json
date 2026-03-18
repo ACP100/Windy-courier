@@ -1,0 +1,12 @@
+{
+  "seed": 7,
+  "total_timesteps": 512,
+  "n_envs": 2,
+  "max_steps": 180,
+  "baseline_video": "assets_smoke\\videos\\baseline_random.mp4",
+  "final_video": "assets_smoke\\videos\\trained_final.mp4",
+  "final_model": "assets_smoke\\final_model\\model.zip",
+  "baseline_success": false,
+  "final_success": false,
+  "final_reward": -16.254517130851745
+}

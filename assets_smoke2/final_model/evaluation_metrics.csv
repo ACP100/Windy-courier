@@ -1,0 +1,2 @@
+episode,reward,steps,success,collision,out_of_bounds,video_path
+1,-16.254517130851745,22,0,0,1,assets_smoke2\videos\eval_episode_1.mp4

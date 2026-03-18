@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windy Courier RL</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Custom Reinforcement Learning Project</p>
+      <h1>Windy Courier</h1>
+      <p class="pitch">A courier drone learns to pick up and deliver a package through turbulent wind zones while avoiding a moving obstacle.</p>
+      <div class="hero-links">
+        <a class="button primary" href="../README.md">Read the README</a>
+        <a class="button" href="#learning">Watch learning happen</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat">
+        <span>Algorithm</span>
+        <strong>PPO</strong>
+      </div>
+      <div class="stat">
+        <span>Environment</span>
+        <strong>Custom Gymnasium</strong>
+      </div>
+      <div class="stat">
+        <span>Artifacts</span>
+        <strong>MP4 + GIF + Plots</strong>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="learning" class="section two-col">
+      <div>
+        <p class="section-label">Watch Learning Happen</p>
+        <h2>From random drift to purposeful delivery</h2>
+        <p>The project saves a baseline video, milestone checkpoints, and a final trained rollout so improvement is easy to see. Run the training script, then regenerate the static page assets with the post-processing script.</p>
+      </div>
+      <div class="panel media-panel">
+        <img src="media/learning_progression.gif" alt="Learning progression GIF" />
+      </div>
+    </section>
+
+    <section class="section grid-2">
+      <article class="panel">
+        <h3>Baseline Policy</h3>
+        <video controls muted playsinline preload="metadata">
+          <source src="media/baseline_random.mp4" type="video/mp4" />
+        </video>
+      </article>
+      <article class="panel">
+        <h3>Final Trained Policy</h3>
+        <video controls muted playsinline preload="metadata">
+          <source src="media/trained_final.mp4" type="video/mp4" />
+        </video>
+      </article>
+    </section>
+
+    <section class="section">
+      <p class="section-label">Metrics</p>
+      <h2>Learning signals captured during training</h2>
+      <div class="grid-2">
+        <article class="panel">
+          <img src="media/reward_curve.png" alt="Reward curve" />
+        </article>
+        <article class="panel">
+          <img src="media/success_rate_curve.png" alt="Success rate curve" />
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div>
+        <p class="section-label">How It Works</p>
+        <h2>Environment, PPO policy, and recording pipeline</h2>
+        <p>The environment exposes position, velocity, package state, obstacle position, and local wind. PPO learns a control policy, while scripts automatically save videos, plots, and a web-ready demo bundle.</p>
+      </div>
+      <div class="panel media-panel">
+        <img src="media/architecture_diagram.png" alt="Architecture diagram" />
+      </div>
+    </section>
+
+    <section class="section callout">
+      <p class="section-label">Why RL</p>
+      <h2>This is a sequential decision problem, not a static prediction task.</h2>
+      <p>There is no single correct move in each state because the best action depends on future wind drift, obstacle timing, and whether the package has already been picked up. That makes reinforcement learning the right framing.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Windy Courier RL. Built with Python, Gymnasium, Stable-Baselines3, PyTorch, and free deployment tools.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
