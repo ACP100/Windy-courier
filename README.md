@@ -205,29 +205,4 @@ Natural next improvements:
 - domain randomization over wind layouts
 - richer observation encoding such as obstacle velocity and local occupancy
 
-## Talking Points
 
-### 30-Second Pitch
-I built a custom RL environment called Windy Courier where a drone learns to pick up and deliver a package across a 2D map with wind drift and a moving obstacle. I trained a PPO agent, automatically saved videos throughout training, and turned the outputs into a GitHub Pages portfolio so learning is visually obvious even without running code live.
-
-### 2-Minute Technical Deep Dive
-The environment is a custom Gymnasium task with a compact observation vector containing position, velocity, package state, obstacle position, and local wind. I used a discrete action space to keep the project stable and trainable within one day. PPO works well here because the agent has to learn a sequential policy under delayed reward and nontrivial dynamics. I added distance-based shaping so the agent first learns to reach the package and then transition to delivery behavior. During training, a callback records milestone videos and checkpoints, while evaluation and post-processing scripts generate a final demo video, a progression GIF, and reward and success plots. That makes it easy to discuss both the RL design and the engineering polish.
-
-## Interview Narrative
-
-### Why RL
-This problem involves sequential decision-making under uncertainty, delayed outcomes, and interaction with the environment. A static labeled dataset would not capture the consequences of actions under different wind conditions and obstacle timings.
-
-### How Learning Emerges
-The policy starts with exploration and mostly chaotic drift. Then it learns a useful sub-goal structure: stabilize, acquire package, route around danger, and deliver. You can point to the saved milestone videos to show each stage.
-
-### What Problem This Simulates
-It loosely simulates a last-mile autonomous drone that must operate under environmental disturbances and dynamic hazards while trying to complete a mission efficiently.
-
-## Notes On Reproducibility
-- all scripts expose a `--seed` argument
-- training, evaluation, and recordings use deterministic paths where appropriate
-- outputs are written to predictable asset directories
-
-## License
-MIT
